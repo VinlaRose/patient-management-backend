@@ -66,7 +66,7 @@ app.delete('/patients/:id', async (req, res) => {
       return res.status(404).json({ error: 'Patient not found' });
     }
 
-    await Patient.findByIdAndRemove(patientId);
+    await Patient.deleteOne({_id: patientId});
 
     res.status(200).json({ success: true, data: patient, message: 'Patient deleted successfully' });
   } catch (error) {
@@ -136,7 +136,7 @@ app.delete('/wards/:id', async (req, res) => {
       return res.status(404).json({ error: 'Ward not found' });
     }
 
-    await Ward.findByIdAndRemove(wardId);
+    await Ward.deleteOne({_id:wardId});
 
     res.status(200).json({ success: true, data: ward, message: 'Ward deleted successfully' });
   } catch (error) {
