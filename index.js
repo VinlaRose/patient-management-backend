@@ -76,7 +76,7 @@ app.delete('/patients/:id', async (req, res) => {
 });
 
 // Update a patient
-app.put('/patients/:id', async (req, res) => {
+app.post('/patients/:id', async (req, res) => {
   const patientId = req.params.id;
   const patientData = req.body;
 
